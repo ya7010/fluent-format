@@ -8,7 +8,7 @@
       "args": [
         "tsc",
         "-p",
-        "tsconfig.extension.json"
+        "${workspaceFolder}/vscode-extension/tsconfig.json"
       ],
       "problemMatcher": ["$tsc"],
       "group": {
@@ -22,6 +22,9 @@
         "panel": "shared",
         "showReuseMessage": true,
         "clear": false
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -31,7 +34,7 @@
       "args": [
         "tsc",
         "-p",
-        "tsconfig.extension.json",
+        "${workspaceFolder}/vscode-extension/tsconfig.json",
         "--watch"
       ],
       "problemMatcher": ["$tsc-watch"],
@@ -44,6 +47,9 @@
         "panel": "shared",
         "showReuseMessage": true,
         "clear": false
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
       }
     }
   ]

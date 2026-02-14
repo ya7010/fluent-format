@@ -1,9 +1,9 @@
 {
   "name": "vscode-fluent-format",
-  "displayName": "Fluent Format",
+  "displayName": "Project Fluent Format",
   "version": "0.1.0",
   "description": "Format and sort Fluent (.ftl) translation files in VSCode",
-  "publisher": "fluent-format",
+  "publisher": "ya7010",
   "license": "MIT",
   "engines": {
     "vscode": "^1.75.0"
@@ -28,8 +28,13 @@
     "languages": [
       {
         "id": "fluent",
-        "extensions": [".ftl"],
-        "aliases": ["Fluent", "fluent"],
+        "extensions": [
+          ".ftl"
+        ],
+        "aliases": [
+          "Fluent",
+          "fluent"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
