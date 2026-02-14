@@ -32,8 +32,13 @@
     "languages": [
       {
         "id": "fluent",
-        "extensions": [".ftl"],
-        "aliases": ["Fluent", "fluent"],
+        "extensions": [
+          ".ftl"
+        ],
+        "aliases": [
+          "Fluent",
+          "fluent"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -69,15 +74,17 @@
     "fluent-format": "./cli.ts"
   },
   "scripts": {
-    "format": "bun run cli.ts",
+    "fluent-format": "bun run cli.ts",
     "vscode:prepublish": "bun run compile",
     "compile": "tsc -p tsconfig.extension.json",
     "watch": "tsc -watch -p tsconfig.extension.json",
     "package": "vsce package",
+    "format": "biome format --write",
     "codex": "bunx @openai/codex@latest",
     "claude": "bunx @anthropic-ai/claude-code@latest"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.15",
     "@types/bun": "latest",
     "@types/vscode": "^1.109.0",
     "vscode-languageclient": "^9.0.1"

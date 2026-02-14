@@ -1,0 +1,45 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.15/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "files": {
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.md",
+      "**/*.mdx",
+      "**/*.json",
+      "!**/_generated",
+      "!**/*.gen.ts",
+      "!**/*.js",
+      "!**/.vinxi",
+      "!**/*.queries.ts",
+      "!**/node_modules",
+      "!**/__pycache__",
+      "!**/.venv"
+    ]
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "linter": {
+    "rules": {
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error",
+        "useJsxKeyInIterable": "off"
+      },
+      "a11y": {
+        "useSemanticElements": "off",
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off"
+      }
+    }
+  }
+}

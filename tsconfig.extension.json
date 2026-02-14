@@ -12,13 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": [
-    "extension.ts",
-    "formatter.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "out",
-    "**/*.test.ts"
-  ]
+  "include": ["extension.ts", "formatter.ts"],
+  "exclude": ["node_modules", "out", "**/*.test.ts"]
 }
