@@ -1,20 +1,93 @@
 {
   "name": "fluent-format",
+  "displayName": "Fluent Format",
   "version": "0.1.0",
-  "description": "A CLI tool to format Fluent (.ftl) files",
+  "description": "Format and sort Fluent (.ftl) translation files",
+  "publisher": "fluent-format",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/fluent-format"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Formatters",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "fluent",
+    "ftl",
+    "formatter",
+    "localization",
+    "l10n",
+    "i18n"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:fluent"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "fluent",
+        "extensions": [
+          ".ftl"
+        ],
+        "aliases": [
+          "Fluent",
+          "fluent"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "fluent-format.format",
+        "title": "Format Fluent File"
+      },
+      {
+        "command": "fluent-format.formatSort",
+        "title": "Format and Sort Fluent File"
+      }
+    ],
+    "configuration": {
+      "title": "Fluent Format",
+      "properties": {
+        "fluentFormat.sortOnFormat": {
+          "type": "boolean",
+          "default": false,
+          "description": "Sort messages alphabetically when formatting"
+        },
+        "fluentFormat.formatOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically format Fluent files on save"
+        }
+      }
+    }
+  },
   "module": "index.ts",
   "type": "module",
   "bin": {
     "fluent-format": "./cli.ts"
   },
   "scripts": {
-    "format": "bun run cli.ts",
+    "fluent-format": "bun run cli.ts",
+    "vscode:prepublish": "bun run compile",
+    "compile": "tsc -p tsconfig.extension.json",
+    "watch": "tsc -watch -p tsconfig.extension.json",
+    "package": "vsce package",
+    "format": "biome format --write",
     "codex": "bunx @openai/codex@latest",
     "claude": "bunx @anthropic-ai/claude-code@latest"
   },
-  "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@biomejs/biome": "^2.3.15",
+    "@types/bun": "latest",
+    "@types/vscode": "^1.109.0",
+    "vscode-languageclient": "^9.0.1"
   },
   "peerDependencies": {
     "typescript": "^5"
