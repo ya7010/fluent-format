@@ -1,0 +1,26 @@
+{
+  "name": "fluent-format",
+  "version": "0.1.0",
+  "description": "A CLI tool to format Fluent (.ftl) files",
+  "module": "index.ts",
+  "type": "module",
+  "bin": {
+    "fluent-format": "./cli.ts"
+  },
+  "scripts": {
+    "format": "bun run cli.ts",
+    "codex": "bunx @openai/codex@latest",
+    "claude": "bunx @anthropic-ai/claude-code@latest"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@fluent/syntax": "^0.19.0",
+    "commander": "^14.0.3"
+  }
+}
