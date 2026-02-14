@@ -14,7 +14,8 @@ program
   .argument('<path>', 'File or directory to format')
   .option('-w, --write', 'Write formatted output to file', false)
   .option('-c, --check', 'Check if files are formatted (exit with error if not)', false)
-  .action(async (path: string, options: { write: boolean; check: boolean }) => {
+  .option('-s, --sort', 'Sort messages alphabetically within blank-line-separated groups', false)
+  .action(async (path: string, options: { write: boolean; check: boolean; sort: boolean }) => {
     const targetPath = join(process.cwd(), path);
 
     if (!existsSync(targetPath)) {
@@ -23,6 +24,7 @@ program
     }
 
     const stats = statSync(targetPath);
+    const formatOptions = { sort: options.sort };
 
     try {
       if (stats.isFile()) {
@@ -31,7 +33,7 @@ program
           process.exit(1);
         }
 
-        const result = await formatFile(targetPath, options.write);
+        const result = await formatFile(targetPath, options.write, formatOptions);
 
         if (options.check) {
           if (!result.isFormatted) {
@@ -46,7 +48,7 @@ program
           console.log(result.content);
         }
       } else if (stats.isDirectory()) {
-        const results = await formatDirectory(targetPath, options.write);
+        const results = await formatDirectory(targetPath, options.write, formatOptions);
 
         if (options.check) {
           const unformatted = results.filter(r => !r.isFormatted);
