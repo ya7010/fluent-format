@@ -89,6 +89,44 @@ Then you can use it anywhere:
 fluent-format --write my-file.ftl
 ```
 
+## VSCode Extension
+
+This tool can also be used as a VSCode extension for formatting Fluent files directly in your editor.
+
+### Installation
+
+1. Open the project in VSCode
+2. Press `F5` to launch the extension in development mode
+3. In the new VSCode window, open any `.ftl` file
+
+### Features
+
+- **Format Document**: Right-click in a `.ftl` file and select "Format Document" or use `Shift+Alt+F`
+- **Format on Save**: Enable in settings (`fluentFormat.formatOnSave`)
+- **Auto Sort**: Enable automatic sorting when formatting (`fluentFormat.sortOnFormat`)
+- **Commands**:
+  - `Format Fluent File`: Format the current file
+  - `Format and Sort Fluent File`: Format and sort the current file
+
+### Settings
+
+```json
+{
+  "fluentFormat.formatOnSave": false,
+  "fluentFormat.sortOnFormat": false
+}
+```
+
+### Publishing
+
+To package the extension for distribution:
+
+```bash
+bun run package
+```
+
+This will create a `.vsix` file that can be installed in VSCode.
+
 ## How it works
 
 This tool uses the official `@fluent/syntax` parser to:
