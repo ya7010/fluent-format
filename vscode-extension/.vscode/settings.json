@@ -1,0 +1,6 @@
+{
+  "[fluent]": {
+    "editor.defaultFormatter": "ya7010.vscode-fluent-format",
+    "editor.formatOnSave": true
+  }
+}

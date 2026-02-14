@@ -16,6 +16,18 @@ Format and sort [Fluent](https://projectfluent.org/) (`.ftl`) translation files 
 2. Right-click and select "Format Document" or press `Shift+Alt+F`
 3. The file will be formatted according to your settings
 
+### Set as Default Formatter
+
+Set this extension as the default formatter for Fluent files:
+
+```json
+{
+  "[fluent]": {
+    "editor.defaultFormatter": "ya7010.vscode-fluent-format"
+  }
+}
+```
+
 ### Format on Save
 
 Enable format-on-save using VSCode's standard setting:
@@ -24,7 +36,7 @@ Enable format-on-save using VSCode's standard setting:
 {
   "[fluent]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "fluent-format.vscode-fluent-format"
+    "editor.defaultFormatter": "ya7010.vscode-fluent-format"
   }
 }
 ```
@@ -70,6 +82,17 @@ signup = Sign up
 ## Requirements
 
 This extension uses the [fluent-format](https://www.npmjs.com/package/fluent-format) package for formatting.
+
+## Development / Packaging
+
+To build the `.vsix` package, **use the npm script** (Bun-managed dependencies require skipping npm’s dependency check):
+
+```bash
+cd vscode-extension
+bun run package
+```
+
+Do **not** run `bunx vsce package` or `npx vsce package` directly, or you will get `ELSPROBLEMS` from npm.
 
 ## License
 
