@@ -1,0 +1,60 @@
+{
+  "name": "vscode-fluent-format",
+  "displayName": "Fluent Format",
+  "version": "0.1.0",
+  "description": "Format and sort Fluent (.ftl) translation files in VSCode",
+  "publisher": "fluent-format",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Formatters",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "fluent",
+    "ftl",
+    "formatter",
+    "localization",
+    "l10n",
+    "i18n"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:fluent"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "fluent",
+        "extensions": [".ftl"],
+        "aliases": ["Fluent", "fluent"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "configuration": {
+      "title": "Fluent Format",
+      "properties": {
+        "fluentFormat.sortOnFormat": {
+          "type": "boolean",
+          "default": false,
+          "description": "Sort messages alphabetically when formatting"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "bun run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "fluent-format": "file:.."
+  }
+}

@@ -91,41 +91,21 @@ fluent-format --write my-file.ftl
 
 ## VSCode Extension
 
-This tool can also be used as a VSCode extension for formatting Fluent files directly in your editor.
+A VSCode extension is available in the `vscode-extension/` directory. See [vscode-extension/README.md](vscode-extension/README.md) for details.
 
-### Installation
-
-1. Open the project in VSCode
-2. Press `F5` to launch the extension in development mode
-3. In the new VSCode window, open any `.ftl` file
-
-### Features
-
-- **Format Document**: Right-click in a `.ftl` file and select "Format Document" or use `Shift+Alt+F`
-- **Format on Save**: Enable in settings (`fluentFormat.formatOnSave`)
-- **Auto Sort**: Enable automatic sorting when formatting (`fluentFormat.sortOnFormat`)
-- **Commands**:
-  - `Format Fluent File`: Format the current file
-  - `Format and Sort Fluent File`: Format and sort the current file
-
-### Settings
-
-```json
-{
-  "fluentFormat.formatOnSave": false,
-  "fluentFormat.sortOnFormat": false
-}
-```
-
-### Publishing
-
-To package the extension for distribution:
+### Quick Start
 
 ```bash
-bun run package
+cd vscode-extension
+bun install
+bun run compile
 ```
 
-This will create a `.vsix` file that can be installed in VSCode.
+Then press `F5` in VSCode to launch the Extension Development Host.
+
+## Project Structure
+
+See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for details on how the CLI tool and VSCode extension are organized.
 
 ## How it works
 

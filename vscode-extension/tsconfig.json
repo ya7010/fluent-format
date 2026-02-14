@@ -5,13 +5,13 @@
     "outDir": "out",
     "lib": ["ES2020"],
     "sourceMap": true,
-    "rootDir": ".",
+    "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["extension.ts", "formatter.ts"],
-  "exclude": ["node_modules", "out", "**/*.test.ts"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "out"]
 }

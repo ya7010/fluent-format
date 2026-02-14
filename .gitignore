@@ -1,10 +1,13 @@
 # dependencies (bun install)
 node_modules
+vscode-extension/node_modules
 
 # output
 out
+vscode-extension/out
 dist
 *.tgz
+*.vsix
 
 # code coverage
 coverage
